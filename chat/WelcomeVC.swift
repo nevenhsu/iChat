@@ -23,15 +23,26 @@ class WelcomeVC: UIViewController {
 
     //MARK: IBActions
     @IBAction func loginButtonPressed(_ sender: UIButton) {
-        print("login")
+        dismissKeyboard()
     }
     
     @IBAction func registerButtonPressed(_ sender: UIButton) {
-        print("register")
+        dismissKeyboard()
     }
     
     @IBAction func backgroundPressed(_ sender: UITapGestureRecognizer) {
-        print("dismiss")
+        dismissKeyboard()
+    }
+    
+    //MARK: Helper
+    func dismissKeyboard() {
+        self.view.endEditing(false)
+    }
+    
+    func cleanTextField() {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        repeatPasswordTextField.text = ""
     }
     
     
