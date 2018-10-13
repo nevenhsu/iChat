@@ -71,7 +71,9 @@ class WelcomeVC: UIViewController {
     }
     
     func registerUser() {
-        
+        performSegue(withIdentifier: "welcomeToFinishRegisteration", sender: self)
+        cleanTextField()
+        dismissKeyboard()
     }
     
     func goApp() {
@@ -90,6 +92,15 @@ class WelcomeVC: UIViewController {
         emailTextField.text = ""
         passwordTextField.text = ""
         repeatPasswordTextField.text = ""
+    }
+    
+    //MARK: Navigaiton
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "welcomeToFinishRegisteration" {
+            let finishRegistrationVC = segue.destination as! FinishRegistrationVC
+            finishRegistrationVC.email = emailTextField.text!
+            finishRegistrationVC.password = passwordTextField.text!
+        }
     }
     
     
