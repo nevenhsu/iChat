@@ -78,10 +78,12 @@ class WelcomeVC: UIViewController {
     
     func goApp() {
         ProgressHUD.dismiss()
-        cleanTextField()
         dismissKeyboard()
+        cleanTextField()
         
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
         
+        present(mainView, animated: true, completion: nil)
     }
     
     func dismissKeyboard() {

@@ -105,10 +105,20 @@ class FinishRegistrationVC: UIViewController {
                 return
             }
             
-            // Go to App
-            
+            self.goToApp()
         }
+    }
+    
+    func goToApp() {
+        ProgressHUD.dismiss()
+        dismissKeyboard()
+        cleanTextField()
         
+        NotificationCenter.default.post(name: NSNotification.Name(USER_DID_LOGIN_NOTIFICATION), object: nil, userInfo: [kUSERID: FUser.currentId()])
+        
+        let mainView = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "mainApplication") as! UITabBarController
+        
+        present(mainView, animated: true, completion: nil)
     }
     
     func dismissKeyboard() {
