@@ -250,33 +250,27 @@
             </objects>
             <point key="canvasLocation" x="946.39999999999998" y="132.68365817091455"/>
         </scene>
-        <!--Call-->
+        <!--Chats-->
         <scene sceneID="DBF-R1-mAx">
             <objects>
-                <viewController id="HG2-hj-Hjy" sceneMemberID="viewController">
+                <viewController id="HG2-hj-Hjy" customClass="ChatsVC" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="aWK-UR-f02">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is Main App" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T9D-Xx-ah3">
-                                <rect key="frame" x="124.66666666666669" y="92" width="126" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="T9D-Xx-ah3" firstAttribute="top" secondItem="Xwl-zp-PGf" secondAttribute="top" constant="48" id="LZN-Fi-rsO"/>
-                            <constraint firstItem="T9D-Xx-ah3" firstAttribute="centerX" secondItem="aWK-UR-f02" secondAttribute="centerX" id="vwB-sy-9rf"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="Xwl-zp-PGf"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Call" image="call" id="nA8-gG-AG2"/>
+                    <navigationItem key="navigationItem" title="Chats" id="WXD-AV-Zl9">
+                        <barButtonItem key="rightBarButtonItem" systemItem="compose" id="3W8-oU-3R6">
+                            <connections>
+                                <action selector="createNewChatButtonPressed:" destination="HG2-hj-Hjy" id="69d-A2-TLy"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ahh-7k-Vz2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2457" y="-200"/>
+            <point key="canvasLocation" x="3399.1999999999998" y="-200.24630541871923"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="VXw-nA-VCc">
@@ -288,7 +282,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="HG2-hj-Hjy" kind="relationship" relationship="viewControllers" id="NOo-I4-tGO"/>
+                        <segue destination="bNR-EV-hKZ" kind="relationship" relationship="viewControllers" id="NOo-I4-tGO"/>
                         <segue destination="ehI-o2-g3e" kind="relationship" relationship="viewControllers" id="gkg-0Z-6QN"/>
                     </connections>
                 </tabBarController>
@@ -360,10 +354,10 @@
             </objects>
             <point key="canvasLocation" x="3392.8000000000002" y="492.85714285714289"/>
         </scene>
-        <!--Table View Controller-->
+        <!--User TableVC-->
         <scene sceneID="TZ9-b9-vNM">
             <objects>
-                <tableViewController id="quq-xf-Dw1" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="userTableView" id="quq-xf-Dw1" customClass="UserTableVC" customModule="chat" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="RUQ-e3-rnn">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -379,6 +373,9 @@
                                         <segment title="My Country"/>
                                         <segment title="All"/>
                                     </segments>
+                                    <connections>
+                                        <action selector="filterSegmentValueChanged:" destination="quq-xf-Dw1" eventType="valueChanged" id="FLM-dt-Bhq"/>
+                                    </connections>
                                 </segmentedControl>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -427,10 +424,14 @@
                             <outlet property="delegate" destination="quq-xf-Dw1" id="XUh-0y-OU7"/>
                         </connections>
                     </tableView>
+                    <connections>
+                        <outlet property="filterSegmentedControl" destination="4nd-sw-Ayb" id="54t-cd-oYf"/>
+                        <outlet property="headerView" destination="opT-mh-94Y" id="Gqy-nN-JmZ"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nn1-BJ-izS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4381.6000000000004" y="131.52709359605913"/>
+            <point key="canvasLocation" x="5324" y="131.52709359605913"/>
         </scene>
         <!--Settings-->
         <scene sceneID="jm2-5y-oTE">
@@ -451,10 +452,29 @@
             </objects>
             <point key="canvasLocation" x="2450.4000000000001" y="492.85714285714289"/>
         </scene>
+        <!--Call-->
+        <scene sceneID="zb3-eq-mji">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bNR-EV-hKZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Call" image="call" id="nA8-gG-AG2"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aMY-he-LAH">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="HG2-hj-Hjy" kind="relationship" relationship="rootViewController" id="8Ob-E0-r7w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mlr-bt-51Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2456.8000000000002" y="-200.24630541871923"/>
+        </scene>
     </scenes>
     <resources>
         <image name="avatarPlaceholder" width="101" height="101"/>
-        <image name="call" width="30" height="30"/>
-        <image name="settings" width="25" height="25"/>
+        <image name="call" width="40" height="40"/>
+        <image name="settings" width="56.25" height="56.25"/>
     </resources>
 </document>
