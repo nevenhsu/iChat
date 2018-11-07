@@ -21,16 +21,38 @@ class ProfileTableVC: UITableViewController {
     
     var user: FUser?;
     
+    
+    
     // MARK: IBActions
     @IBAction func phoneButtonPressed(_ sender: UIButton) {
     }
+    
     @IBAction func messageButtonPressed(_ sender: UIButton) {
     }
+    
     @IBAction func blockUserButtonPressed(_ sender: UIButton) {
+        
+        var currentBlockUserIds = FUser.currentUser()?.blockedUsers
+        
+        if (currentBlockUserIds!.contains(user!.objectId)) {
+            
+            let index = currentBlockUserIds!.lastIndex(of: user!.objectId)
+            currentBlockUserIds!.remove(at: index!)
+            
+        } else {
+            currentBlockUserIds!.append(user!.objectId)
+        }
+        
+        updateCurrentUserInFirestore(withValues: [kBLOCKEDUSERID: currentBlockUserIds!]) { (error) in
+            if (error != nil) {
+                print("Error: Updating user \(error?.localizedDescription)")
+                return
+            }
+            
+            self.updateBlockStatus()
+        }
+        
     }
-    
-    
-    
     
     
     
@@ -97,7 +119,7 @@ class ProfileTableVC: UITableViewController {
             blockUserOutlet.isHidden = true
         }
         
-        if FUser.currentUser()!.blockedUsers.contains(user?.objectId) {
+        if FUser.currentUser()!.blockedUsers.contains(user!.objectId) {
             blockUserOutlet.setTitle("Unblock User", for: .normal)
         } else {
             blockUserOutlet.setTitle("Block User", for: .normal)
