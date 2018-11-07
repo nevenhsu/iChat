@@ -10,7 +10,7 @@ import UIKit
 import Firebase
 import ProgressHUD
 
-class UserTableVC: UITableViewController, UISearchResultsUpdating {
+class UserTableVC: UITableViewController, UISearchResultsUpdating, UserTableViewCellDelegate {
     
     
     @IBOutlet weak var headerView: UIView!
@@ -78,7 +78,8 @@ class UserTableVC: UITableViewController, UISearchResultsUpdating {
         }
         
         cell.initCellWith(fUser: user, indexPath: indexPath)
-
+        cell.delegate = self
+        
         return cell
     }
     
@@ -206,4 +207,27 @@ class UserTableVC: UITableViewController, UISearchResultsUpdating {
     }
 
 
+    
+    //MARK: Cell Delegate
+    func didTapAvatarImage(indexPath: IndexPath) {
+        print("cell: \(indexPath)")
+        
+        let profileVC = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "profileView") as! ProfileTableVC
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filterUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUserGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        profileVC.user = user
+        self.navigationController?.pushViewController(profileVC, animated: true)
+        
+    }
+    
+    
 }

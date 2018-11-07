@@ -8,11 +8,17 @@
 
 import UIKit
 
+protocol UserTableViewCellDelegate {
+    func didTapAvatarImage(indexPath: IndexPath)
+}
+
 class UserTableViewCell: UITableViewCell {
     
     @IBOutlet weak var avatarImage: UIImageView!
     @IBOutlet weak var fullNameLabel: UILabel!
+    
     var indexPath: IndexPath!
+    var delegate: UserTableViewCellDelegate?
     
     let tapGesture = UIGestureRecognizer()
 
@@ -46,6 +52,7 @@ class UserTableViewCell: UITableViewCell {
     }
     
     @objc func avatarTap() {
+        delegate?.didTapAvatarImage(indexPath: indexPath)
         print("items index: \(indexPath)")
     }
     
