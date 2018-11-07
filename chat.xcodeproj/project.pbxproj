@@ -92,6 +92,41 @@
 			path = Config;
 			sourceTree = "<group>";
 		};
+		0BC938CC2193AFF900826DAF /* WelcomeVC */ = {
+			isa = PBXGroup;
+			children = (
+				0BD2ED57211F407B008DB52A /* WelcomeVC.swift */,
+				0B4290212136EC15009C8047 /* FinishRegistrationVC.swift */,
+			);
+			path = WelcomeVC;
+			sourceTree = "<group>";
+		};
+		0BC938CD2193B03500826DAF /* MainVC */ = {
+			isa = PBXGroup;
+			children = (
+				0BC51D6721734A0100CADF4E /* SettingsTableVC.swift */,
+				0B531FA1217E1C3500AEF727 /* ChatsVC.swift */,
+			);
+			path = MainVC;
+			sourceTree = "<group>";
+		};
+		0BC938CE2193B05100826DAF /* SecondaryVC */ = {
+			isa = PBXGroup;
+			children = (
+				0B498353217C692F003F6EF8 /* UserTableVC.swift */,
+				0B5A8CA8218BC8BD00AE65B9 /* ProfileTableVC.swift */,
+			);
+			path = SecondaryVC;
+			sourceTree = "<group>";
+		};
+		0BC938CF2193B08C00826DAF /* CustomCell */ = {
+			isa = PBXGroup;
+			children = (
+				0B0AC965217B2054009AFD82 /* UserTableViewCell.swift */,
+			);
+			path = CustomCell;
+			sourceTree = "<group>";
+		};
 		0BD2ED39211F3B78008DB52A = {
 			isa = PBXGroup;
 			children = (
@@ -113,6 +148,10 @@
 		0BD2ED44211F3B78008DB52A /* chat */ = {
 			isa = PBXGroup;
 			children = (
+				0BC938CC2193AFF900826DAF /* WelcomeVC */,
+				0BC938CD2193B03500826DAF /* MainVC */,
+				0BC938CE2193B05100826DAF /* SecondaryVC */,
+				0BC938CF2193B08C00826DAF /* CustomCell */,
 				0B4290252136ED4B009C8047 /* Config */,
 				0B4290242136EC38009C8047 /* Classes */,
 				0B4290232136EC25009C8047 /* Helpers */,
@@ -123,13 +162,6 @@
 				0BD2ED4E211F3B79008DB52A /* LaunchScreen.storyboard */,
 				0BD2ED51211F3B79008DB52A /* Info.plist */,
 				0BD2ED59212DA5B9008DB52A /* GoogleService-Info.plist */,
-				0BD2ED57211F407B008DB52A /* WelcomeVC.swift */,
-				0B4290212136EC15009C8047 /* FinishRegistrationVC.swift */,
-				0BC51D6721734A0100CADF4E /* SettingsTableVC.swift */,
-				0B0AC965217B2054009AFD82 /* UserTableViewCell.swift */,
-				0B498353217C692F003F6EF8 /* UserTableVC.swift */,
-				0B531FA1217E1C3500AEF727 /* ChatsVC.swift */,
-				0B5A8CA8218BC8BD00AE65B9 /* ProfileTableVC.swift */,
 			);
 			path = chat;
 			sourceTree = "<group>";
