@@ -104,6 +104,23 @@ class UserTableVC: UITableViewController, UISearchResultsUpdating, UserTableView
         return index
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        
+        var user: FUser
+        
+        if searchController.isActive && searchController.searchBar.text != "" {
+            user = filterUsers[indexPath.row]
+        } else {
+            let sectionTitle = self.sectionTitleList[indexPath.section]
+            let users = self.allUserGrouped[sectionTitle]
+            user = users![indexPath.row]
+        }
+        
+        
+        
+    }
+    
     
     func loadUsers(filter: String) {
         ProgressHUD.show()

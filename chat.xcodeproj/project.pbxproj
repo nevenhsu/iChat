@@ -12,6 +12,7 @@
 		0B498354217C692F003F6EF8 /* UserTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B498353217C692F003F6EF8 /* UserTableVC.swift */; };
 		0B531FA2217E1C3500AEF727 /* ChatsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B531FA1217E1C3500AEF727 /* ChatsVC.swift */; };
 		0B5A8CA9218BC8BD00AE65B9 /* ProfileTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B5A8CA8218BC8BD00AE65B9 /* ProfileTableVC.swift */; };
+		0B62A06F2199CB8D0077BEFC /* Recent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B62A06E2199CB8D0077BEFC /* Recent.swift */; };
 		0BC51D6821734A0100CADF4E /* SettingsTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BC51D6721734A0100CADF4E /* SettingsTableVC.swift */; };
 		0BD2ED46211F3B78008DB52A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2ED45211F3B78008DB52A /* AppDelegate.swift */; };
 		0BD2ED48211F3B78008DB52A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BD2ED47211F3B78008DB52A /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		0B498353217C692F003F6EF8 /* UserTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableVC.swift; sourceTree = "<group>"; };
 		0B531FA1217E1C3500AEF727 /* ChatsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsVC.swift; sourceTree = "<group>"; };
 		0B5A8CA8218BC8BD00AE65B9 /* ProfileTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableVC.swift; sourceTree = "<group>"; };
+		0B62A06E2199CB8D0077BEFC /* Recent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recent.swift; sourceTree = "<group>"; };
 		0BC51D6721734A0100CADF4E /* SettingsTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableVC.swift; sourceTree = "<group>"; };
 		0BD2ED42211F3B78008DB52A /* chat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = chat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BD2ED45211F3B78008DB52A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 			children = (
 				0BD2ED5D212DADA6008DB52A /* FUser.swift */,
 				0BD2ED5B212DAD2E008DB52A /* FCollectionReference.swift */,
+				0B62A06E2199CB8D0077BEFC /* Recent.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -349,6 +352,7 @@
 				0BC51D6821734A0100CADF4E /* SettingsTableVC.swift in Sources */,
 				0B4290222136EC15009C8047 /* FinishRegistrationVC.swift in Sources */,
 				0BD2ED46211F3B78008DB52A /* AppDelegate.swift in Sources */,
+				0B62A06F2199CB8D0077BEFC /* Recent.swift in Sources */,
 				0BD2ED60212EE629008DB52A /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
