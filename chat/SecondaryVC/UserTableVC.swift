@@ -117,6 +117,8 @@ class UserTableVC: UITableViewController, UISearchResultsUpdating, UserTableView
             user = users![indexPath.row]
         }
         
+        startPrivateChat(user1: FUser.currentUser()!, user2: user)
+        
         
         
     }

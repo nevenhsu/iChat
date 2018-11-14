@@ -57,7 +57,7 @@ func createRecent(members: [String], chatRoomId: String, withUserUserName: Strin
         
         for userId in tempMembers {
             // create recent items
-            createRecentItems(userId: userId,chatRoomId: chatRoomId, members: members, userUserName: withUserUserName, type: type, users: users, avatarOfGroup: avatarOfGroup)
+            createRecentItems(userId: userId,chatRoomId: chatRoomId, members: members, withUserUserName: withUserUserName, type: type, users: users, avatarOfGroup: avatarOfGroup)
         }
         
     }
@@ -65,7 +65,7 @@ func createRecent(members: [String], chatRoomId: String, withUserUserName: Strin
 }
 
 
-func createRecentItems(userId: String, chatRoomId: String, members:[String], userUserName: String, type: String, users: [FUser]?, avatarOfGroup: String?) {
+func createRecentItems(userId: String, chatRoomId: String, members:[String], withUserUserName: String, type: String, users: [FUser]?, avatarOfGroup: String?) {
     
     let localRefernce = reference(.Recent).document()
     let recentId = localRefernce.documentID
@@ -106,9 +106,25 @@ func createRecentItems(userId: String, chatRoomId: String, members:[String], use
     } else {
         // group
         
+        if avatarOfGroup != nil {
+            recent = [
+                kRECENTID: recentId,
+                kUSERID: userId,
+                kCHATROOMID: chatRoomId,
+                kMEMBERS: members,
+                kMEMBERSTOPUSH: members,
+                kWITHUSERUSERNAME: withUserUserName,
+                kLASTMESSAGE: "",
+                kCOUNTER: 0,
+                kDATE: date,
+                kTYPE: type,
+                kAVATAR: avatarOfGroup!
+                ] as [String: Any]
+        }
     }
     
-    
+    // save recent chat
+    localRefernce.setData(recent)
     
     
     
